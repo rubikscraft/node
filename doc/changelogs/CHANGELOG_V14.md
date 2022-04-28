@@ -11,6 +11,7 @@
 </tr>
 <tr>
 <td valign="top">
+<a href="#14.19.2">14.19.2</a><br/>
 <a href="#14.19.1">14.19.1</a><br/>
 <a href="#14.19.0">14.19.0</a><br/>
 <a href="#14.18.3">14.18.3</a><br/>
@@ -70,6 +71,36 @@
   * [0.10.x](CHANGELOG_V010.md)
   * [io.js](CHANGELOG_IOJS.md)
   * [Archive](CHANGELOG_ARCHIVE.md)
+
+<a id="14.19.2"></a>
+## 2022-04-29, Version 14.19.2 'Fermium' (LTS), @juanarbol
+
+### Notable changes
+
+V8:
+V8 had a stack overflow issue affecting the `vm` module, cherry-picking [`cc9a8a37445e`](https://github.com/nodejs/node/pull/41826/commits/941b02375a3dbcc4a5eb054c1c206edb80f99b61)
+from V8 solves this issue.
+
+Learn more at: https://github.com/nodejs/node/pull/41826
+
+Contributed by @devsnek
+
+Using `getHeapSnapshot()` was causing a Node.js crash due a V8 issue, this is fixed by backporting [`367b0c1e7a32`](https://github.com/v8/v8/commit/367b0c1e7a323deafeab56736b01bc7e14fc1998)
+from V8.
+
+Learn more at: https://github.com/nodejs/node/pull/42637
+
+Contributed by Gabriel Schulhof (@legendecas)
+
+### Commits
+
+* \[[`40b0f8fe36`](https://github.com/nodejs/node/commit/40b0f8fe36)] - **build**: use ccache in make-v8.sh on ppc64le and s390x (Richard Lau) [#42204](https://github.com/nodejs/node/pull/42204)
+* \[[`3d6255fc2e`](https://github.com/nodejs/node/commit/3d6255fc2e)] - **deps**: V8: cherry-pick cc9a8a37445e (Gus Caplan) [#41826](https://github.com/nodejs/node/pull/41826)
+* \[[`b89d4ef0a2`](https://github.com/nodejs/node/commit/b89d4ef0a2)] - **deps**: V8: cherry-pick 367b0c1e7a32 (legendecas) [#42637](https://github.com/nodejs/node/pull/42637)
+* \[[`97083bc5c9`](https://github.com/nodejs/node/commit/97083bc5c9)] - **doc**: specify flag needed for JSON and Wasm modules (Rich Trott) [#42736](https://github.com/nodejs/node/pull/42736)
+* \[[`03e957265d`](https://github.com/nodejs/node/commit/03e957265d)] - **doc**: use openpgp.org for keyserver examples (Nick Schonning) [#39227](https://github.com/nodejs/node/pull/39227)
+* \[[`d4171e0eac`](https://github.com/nodejs/node/commit/d4171e0eac)] - **stream**: resume stream on drain (Robert Nagy) [#41848](https://github.com/nodejs/node/pull/41848)
+* \[[`608333e105`](https://github.com/nodejs/node/commit/608333e105)] - **worker**: do not send message if port is closing (Rich Trott) [#42357](https://github.com/nodejs/node/pull/42357)
 
 <a id="14.19.1"></a>
 
